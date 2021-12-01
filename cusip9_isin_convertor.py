@@ -25,7 +25,10 @@ def cusip9_isin_convertor(CUSIP9):
         for j in range(len(odds2[i])):
             odds3.append(int(odds2[i][j]))
         
-        odds4=odds3+[int(i) for i in evens] 
+        if len(odds)>len(evens):
+            odds4=odds3+[int(i) for i in evens] 
+        else: 
+            odds4=odds3+[int(i) for i in odds] 
        
 
 
@@ -33,4 +36,3 @@ def cusip9_isin_convertor(CUSIP9):
 
     isin="US"+CUSIP9+str(isin_check_digit)
     return(isin)
-
